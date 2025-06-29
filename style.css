@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+    padding-bottom: 0px;
+    font-family: "Winky Rough", sans-serif;
+    scroll-behavior: smooth;
+    color: white;
+    background-color: #000000;
+}
+
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+} 
+
+/* Section Styling */
+.section {
+  padding-bottom: 0px;
+  padding-top: 5px;
+  padding-right: 20px;
+  margin-top: 60px;
+}
+
+body {
+  padding-bottom: 50px; /* or however much you need */
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #000000;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 18px;
+  padding: 8px 12px;
+}
+
+.navbar a:hover {
+  background-color: #555454;
+  border-radius: 4px;
+}
+
+#projects {
+  background-color: #000000;
+  padding-left: 40px; /* adds 20 pixels of padding on the left */
+}
+
+#home {
+  background-color: #000000;
+  padding-left: 40px;
+}
+
+.home-content {
+  display: flex;         /* key: place children side by side */
+  align-items: top;   /* vertically center them */
+  gap: 20px;             /* space between image and text */
+  flex-wrap: wrap;       /* lets it wrap on small screens */
+}
+
+.home-image {
+  max-width: 300px;      /* control image size */
+  width: 100%;           /* responsive */
+  height: auto;       /* keeps original aspect ratio */
+  display: block;     /* removes inline spacing */
+  object-fit: contain; /* optional: contains image without cropping */
+  border-radius: 8px;
+}
+
+.home-text {
+  flex: 1;               /* take remaining space */
+} 
+
+.image-row {
+  padding-top: 30px;
+  display: flex;             /* enables horizontal layout */
+  justify-content: center;   /* centers the images in the row */
+  gap: 20px;                 /* space between images */
+  flex-wrap: wrap;           /* allows stacking on small screens */
+  text-align: center;
+}
+
+.side-image {
+  max-width: 300px;          /* control size */
+  width: 100%;               /* responsive within max-width */
+  height: auto;              /* maintain aspect ratio */
+  border-radius: 8px;        /* optional: rounded corners */
+}
+
+figcaption {
+  color: #ffffff;
+  margin-top: 8px;
+}
+
+.upcoming{
+    padding-top: 40px;
+}
