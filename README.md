@@ -10,7 +10,7 @@ Welcome to my public GitHub with some of my fun side projects. I have only uploa
 An interlude into html and css, with some small graphic design pieces, for fun! Just clone the repo, and open the html file.
 
 ## university_projects
-Some pictures from some university projects. 
+Pictures and videos from some university projects:
 * Intra-vehicle Coffee Stabiliser and Anti-spill Device
 * 128-point FFT on STM32 micro-controller from first-principles
 * PIC-18 line-following car as part of Robot Race Day
