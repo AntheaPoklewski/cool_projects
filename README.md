@@ -12,5 +12,7 @@ An interlude into html and css, with some small graphic design pieces, for fun! 
 ## university_projects
 Some pictures from some university projects. 
 * Intra-vehicle Coffee Stabiliser and Anti-spill Device
-* FFT on STM32 micro-controller from first-principles
+* 128-point FFT on STM32 micro-controller from first-principles
 * PIC-18 line-following car as part of Robot Race Day
+* Analogue transistor amplifier circuit for speaker
+* Analogue phase-locked loop 
