@@ -97,6 +97,27 @@ body {
   border-radius: 8px;        /* optional: rounded corners */
 }
 
+.uni-image1 {
+  max-width: 270px;          /* control size */
+  width: 100%;               /* responsive within max-width */
+  height: auto;              /* maintain aspect ratio */
+  border-radius: 8px;        /* optional: rounded corners */
+}
+
+.uni-image2 {
+  max-width: 200px;          /* control size */
+  width: 100%;               /* responsive within max-width */
+  height: auto;              /* maintain aspect ratio */
+  border-radius: 8px;        /* optional: rounded corners */
+}
+
+.plant-image {
+  max-width: 210px;          /* control size */
+  width: 100%;               /* responsive within max-width */
+  height: auto;              /* maintain aspect ratio */
+  border-radius: 8px; 
+}
+
 figcaption {
   color: #ffffff;
   margin-top: 8px;
