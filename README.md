@@ -16,3 +16,9 @@ Pictures and videos from some university projects:
 * PIC-18 line-following car as part of Robot Race Day
 * Analogue transistor amplifier circuit for speaker
 * Analogue phase-locked loop 
+
+## automated_liquid_comntrol
+This is the full design, software and hardware components of my final year project
+
+## journal
+Currently re-writing my final-year project report for journal submission. This is a preliminary version under revision.
