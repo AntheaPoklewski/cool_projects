@@ -1,0 +1,7 @@
+% Need a PID response in the x direction related to the pitch
+
+setpointPitch = 10; % Force applied in x direction corresponds to pitch
+errorPrev = 
+
+
+% Need a PID response in the y direction related to the roll

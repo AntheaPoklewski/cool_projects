@@ -1,0 +1,140 @@
+%% 3RRS Worked Example from Paper
+% Constants
+pi = 3.141592654;
+
+ra1 = [0.45 0 0]'; % (m)
+ra2 = [-0.225 0.3897 O]'; % (m)
+ra3 = [-0.225 -0.3897 0]'; % (m)
+
+rb1 = [7 0 0]';
+rb2 = [-0.35 0.6062 0]'; % (m)
+rb3 = [-0.35 -0.6062 0]'; % (m)
+
+% Angular displacement of B1-B3 joints 
+qb1 = 0; % (rad)
+qb2 = 0; % (rad)
+qb3 = 0; % (rad)
+
+% unit vectors
+ub1 = [0 1 0]';
+ub2 = [-sqrt(3)/2 -1/2 0]';
+ub3 = [sqrt(3)/2 -1/2 0]';
+
+Rob1 = [0 -1 0;
+        1 0 0;
+        0 0 1];
+
+Rob2 = [-sqrt(3)/2 1/2 0;
+        -1/2 -sqrt(3)/2 0;
+        0 0 1];
+
+Rob3 = [sqrt(3)/2 1/2 0;
+        -1/2 sqrt(3)/2 0;
+        0 0 1];
+
+ru1_0 = [0 0 0.5]';
+ru2_0 = [0 0 0.5]';
+ru3_0 = [0 0 0.5]';
+
+rd1_0 = [0 0 0.5]';
+rd2_0 = [0 0 0.5]';
+rd3_0 = [0 0 0.5]';
+
+mu1 = 12; % kg
+mu2 = 12;
+mu3 = 12;
+
+md1 = 12; % kg
+md2 = 12;
+md3 = 12;
+mp = 68; 
+
+Iu1_0 = [6.2 0 0;
+         0 6.2 0;
+         0 0 0.5]; % kg.m2
+
+Iu2_0 = [6.2 0 0;
+         0 6.2 0;
+         0 0 0.5]; % kg.m2
+
+Iu3_0 = [6.2 0 0;
+         0 6.2 0;
+         0 0 0.5]; % kg.m2
+
+Id1_0 = [6.2 0 0;
+         0 6.2 0;
+         0 0 0.5]; % kg.m2
+
+Id2_0 = [6.2 0 0;
+         0 6.2 0;
+         0 0 0.5]; % kg.m2
+
+Id3_0 = [6.2 0 0;
+         0 6.2 0;
+         0 0 0.5]; % kg.m2
+
+Ip = [28 0 0;
+      0 36 0;
+      0 0 20]; % kg.m2
+
+rp = [0.1 0 1]';
+
+Rop = [cos(-0.25) 0 sin(-0.25);
+      0 1 0;
+      -sin(-0.25) 0 cos(-0.25)]; 
+
+T = 6;
+vx_dot = [(0.12/T.^2)*(60*t/T - (180*t.^2)/(T.^2) + (120*t.^2)/(T.^3));
+          (0.1/T.^2)*(60*t/T - (180*t.^2)/(T.^2) + (120*t.^2)/(T.^3));
+          (0.5/T.^2)*(60*t/T - (180*t.^2)/(T.^2) + (120*t.^2)/(T.^3))];
+
+Lbc_length = [1 1 1];
+Lca_length = [1 1 1];
+
+% Referece change
+Rub1 = [1 0 0;
+        0 cos(qb1) -sin(qb1);
+        0 sin(qb1) cos(qb1)];
+Rub2 = [1 0 0;
+        0 cos(qb2) -sin(qb2);
+        0 sin(qb2) cos(qb2)];
+Rub3 = [1 0 0;
+        0 cos(qb2) -sin(qb2);
+        0 sin(qb2) cos(qb2)];
+
+Ruc1 = [1 0 0;
+         0 cos(qc1)]
+
+% Leg vectors
+Lba1 = rp + Rop*ra1 - rb1;
+Lba2 = rp + Rop*ra2 - rb2;
+Lba3 = rp + Rop*ra3 - rb3;
+
+Lbc1 = Rob1*Rub1*[0 0 Lbc_length]';
+Lbc2 = Rob2*Rub2*[0 0 Lbc_length]';
+Lbc3 = Rob3*Rub3*[0 0 Lbc_length]';
+
+Lca1 = Lba1 - Lbc1;
+Lca2 = Lba2 - Lbc2;
+Lca3 = Lba3 - Lbc3;
+
+% Joint angles
+alpha = [(acos((Lbc(1).^2 + abs(Lba(1)).^2 - Lca(1).^2)/(2*Lbc(1)*abs(Lba(1))))), (acos((Lbc(2).^2 + abs(Lba(2)).^2 - Lca(2).^2)/(2*Lbc(2)*abs(Lba(2))))), (acos((Lbc(3).^2 + abs(Lba(3)).^2 - Lca(3).^2)/(2*Lbc(3)*abs(Lba(3)))))];
+beta = [(acos(dot(Lba(1), yb_dash(1))/abs(Lba(1)))), (acos(dot(Lba(2), yb_dash(2))/abs(Lba(2)))), (acos(dot(Lba(3), yb_dash(3))/abs(Lba(3))))];
+
+% Leg Position 1 (positive) (i=1,2,3)
+qb = [(alpha(1) + beta(1) - pi/2), (alpha(2) + beta(2) - pi/2), (alpha(3) + beta(3) - pi/2)];
+qc = [(lamda(1) - pi) (lamda(2) - pi) (lamda(3) - pi)];
+
+% % Leg Position 1 (negative) (i=1,2,3)
+% qb1 = beta1 - alpha1 - pi/2;
+% qb2 = beta2 - alpha2 - pi/2;
+% qb3 = beta3 - alpha3 - pi/2;
+% 
+% qc1 = pi - lamda1;
+% qc2 = pi - lamda2;
+% qc3 = pi - lamda3;
+
+
+
+ru1 = Lbc1 + Rob1*Ruc1*ru1_0;

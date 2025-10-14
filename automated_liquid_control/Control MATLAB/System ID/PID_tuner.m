@@ -1,0 +1,72 @@
+% PID system results 
+fs = 400; % Hz (100) <- 6664 for Madgwick <- 400 CF  
+ts = 1/fs;
+t_len = 5; 
+numSamples = t_len/ts;
+t = (0:(10*numSamples-1)).'/fs; % <- needs to be increased based on no rotations
+
+% BAsic PID from s-domain
+A = [0 1; -424.85 -0.136];
+B = [0; 1];
+C = [1 0];
+D = 0;
+[b,a] = ss2tf(A,B,C,D);
+
+s = tf('s');
+G_pend = 1/(s^2 + 0.136*s + 424.85);
+
+% figure(1)
+% step(G_pend);
+
+[pid_pend, info] = pidtune(G_pend, 'PID');
+Kp_pend = pid_pend.Kp; 
+Ki_pend = pid_pend.Ki; 
+Kd_pend = pid_pend.Kd; 
+
+K = 1;
+controller_pend = pid(Kp_pend, Ki_pend, Kd_pend, ts);
+open_loop = G_pend*controller_pend;
+closed_loop = feedback(open_loop, K);
+
+figure(2)
+[vals, t] = step(closed_loop);
+
+plot(t, vals, 'b','LineWidth', 1)
+hold on
+plot([0.2142 0.2142],[0 0.9799],'Color','r', 'Linestyle', '--', 'Linewidth', 2) % Ts
+hold on
+plot([0.009875 0.009875],[0 0.9],'Color','g', 'Linestyle', '--', 'Linewidth', 2) % Tr
+hold on
+plot([0.0197 0.0197],[0 1.1791],'Color','m', 'Linestyle', '--', 'Linewidth', 2) % Tp
+hold on
+plot([0 0.0197],[1.1791 1.1791],'Color','m', 'Linestyle', '--', 'Linewidth', 2) % Tp
+hold on
+plot([0 0.2142],[0.9799 0.9799],'Color','r', 'Linestyle', '--', 'Linewidth', 2) % Ts
+hold on
+plot([0 0.009875],[0.9 0.9],'Color','g', 'Linestyle', '--', 'Linewidth', 2) % Tr
+hold on
+plot([0.00198 0.00198],[0 0.1],'Color','g', 'Linestyle', '--', 'Linewidth', 2) % Tr
+hold on
+plot([0 0.00198],[0.1 0.1],'Color','g', 'Linestyle', '--', 'Linewidth', 2) % Tr
+hold on
+xlabel('Time (s)','FontName','Times New Roman','FontSize', 18)
+ylabel('Amplitude (Degrees)','FontName','Times New Roman','FontSize', 18)
+set(gca, 'FontName', 'Times New Roman','LineWidth', 1.8)
+set(gca, 'XColor', 'k', 'YColor', 'k', 'LineWidth', 1.8)
+set(gca, 'FontSize', 18);  % Make tick label numbers larger
+xlim([0 0.3]);
+ylim([0 1.2]);
+legend({'Step', 'Ts', 'Tr', 'Tp'}, 'Location','southeast')
+grid on
+hold off;
+cleanfigure;
+% Continuous time full system
+% delta_t = ts;
+% theta_dot = (theta_curr - theta_prev)/(delta_t);
+% theta_dot_dot = (theta_dot_curr - theta_dot_prev)/(delta_t);
+
+S = stepinfo(closed_loop);
+
+
+
+

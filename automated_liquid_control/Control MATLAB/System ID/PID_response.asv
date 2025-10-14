@@ -1,0 +1,60 @@
+% Input to the system will be the applied acceleration and gyroscope result
+% This creates a new x, y, z setpoint for each leg as well as a new rate
+% setpoint based on the rate of change of the system
+
+% This leads to a new setpoint for the servo motor angles to reach in order
+% to fulful the other two setpoints
+
+PI = 3.141592654;
+
+% Inverse kinematics of system
+d = 0.11; % distance from the center of the base to any of its corners
+e = 0.11; % distance from the center of the platform to any of its corners
+f = 0.05; % length of link #1
+g = 0.12; % length of link #2
+
+% Calculation Variables
+nmag = 0;
+leg = 'A';
+nz = 0;  % magnitude and z component of the normal vector
+nx = 0;
+ny = 0;
+x = 0; 
+y = 0;
+z = 0; % generic variables for the components of legs A, B, and C
+mag = 0; % generic magnitude of the leg vector
+angle = 0; % generic angle for legs A, B, and C
+
+% Plot 
+[angle, x, y, z] = invKinematics('A', 0.10, 0, 0, d, e, f, g);
+print(angle)
+
+function [angle, x, y, z] = invKinematics(leg, hz, nx, ny, d, e, f, g) 
+  % create unit normal vector
+  PI = 3.141592654;
+  nmag = sqrt(nx.^2 +  ny.^2 + 1);  % magnitude of the normal vector
+  nx = nx/nmag; 
+  ny = ny/nmag;
+  nz = 1/nmag;
+  % calculates angle A, B, or C
+  switch leg 
+    case 'A'  % Leg A
+      y = d + (e / 2) * (1 - nx.^2 + 3 * nz.^2 + 3 * nz) / (nz + 1 - nx.^2 + nx.^4 - 3 * nx.^2 * ny.^2) / ((nz + 1) * (nz + 1 - nx.^2));
+      z = hz + e * ny;
+      mag = sqrt(y.^2 + z.^2);
+      angle = acos(y / mag) + acos((mag.^2 + f.^2 - g.^2) / (2 * mag * f));
+    case 'B'  % Leg B
+      x = (sqrt(3) / 2) * (e * (1 - (nx.^2 + sqrt(3) * nx * ny) / (nz + 1)) - d);
+      y = x / sqrt(3);
+      z = hz - (e / 2) * (sqrt(3) * nx + ny);
+      mag = sqrt(x.^2 + y.^2 + z.^2);
+      angle = acos((sqrt(3) * x + y) / (-2 * mag)) + acos((mag.^2 + f.^2 - g.^2) / (2 * mag * f));
+    case 'C' % Leg C
+      x = (sqrt(3) / 2) * (d - e * (1 - (nx.^2 - sqrt(3) * nx * ny) / (nz + 1)));
+      y = -x / sqrt(3);
+      z = hz + (e / 2) * (sqrt(3) * nx - ny);
+      mag = sqrt(x.^2 + y.^2 + z.^2);
+      angle = acos((sqrt(3) * x - y) / (2 * mag)) + acos((mag.^2 + f.^2 - g.^2) / (2 * mag * f));
+  end
+  angle = (angle * (180 / PI));  % converts angle to degrees and returns the value
+end
