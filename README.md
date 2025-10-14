@@ -17,7 +17,7 @@ Pictures and videos from some university projects:
 * Analogue transistor amplifier circuit for speaker
 * Analogue phase-locked loop 
 
-## automated_liquid_comntrol
+## automated_liquid_control
 This is the full design, software and hardware components of my final year project
 
 ## journal
