@@ -1,0 +1,6 @@
+../Core/Src/LSM6DSOX.c:18:6:InitAccel_IMU1	3
+../Core/Src/LSM6DSOX.c:52:6:InitAccel_IMU2	3
+../Core/Src/LSM6DSOX.c:84:6:InitGyro_IMU1	3
+../Core/Src/LSM6DSOX.c:116:6:InitGyro_IMU2	3
+../Core/Src/LSM6DSOX.c:169:6:LSM6DSOX_readIMU1	7
+../Core/Src/LSM6DSOX.c:212:6:LSM6DSOX_readIMU2	7
