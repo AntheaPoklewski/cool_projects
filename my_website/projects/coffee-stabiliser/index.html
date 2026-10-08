@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intra-vehicle Coffee Stabiliser · Anthea</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Winky+Rough:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <a class="nav-brand" href="../../index.html">Anthea</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../index.html" aria-current="page">Projects</a></li>
+        <li><a href="../../index.html#up-robots">UP Robots</a></li>
+        <li><a href="../../index.html#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <header class="article-header">
+      <p class="breadcrumb">
+        <a href="../../index.html">Home</a> /
+        <a href="../index.html">Projects</a> /
+        Coffee Stabiliser
+      </p>
+      <p class="eyebrow">Final-year project · 2024</p>
+      <h1>Intra-vehicle Coffee Stabiliser and Anti-Spill Device</h1>
+      <p class="article-meta">University of Pretoria · Electronic Engineering · 1st place final-year project</p>
+      <p class="article-summary">
+        A sensor-driven platform that keeps a cup level under normal driving conditions —
+        braking, accelerating, and turning — using IMU data, orientation estimation,
+        and PID control on a 3-RRS parallel manipulator.
+      </p>
+    </header>
+
+    <div class="article-hero">
+      <img src="../../images/project.jpg" alt="Top view of the coffee stabiliser platform">
+    </div>
+
+    <article class="article-body">
+      <h2>Overview</h2>
+      <p>
+        The goal was to prevent coffee spilling in a moving vehicle under normal driving
+        conditions. The system combines a sensor suite (inertial measurement unit) and
+        orientation estimation algorithm, a control subsystem (PID controller) on an
+        embedded device, and a 3-RRS parallel manipulator (3D-printed platform and servo motors).
+      </p>
+
+      <div class="callout">
+        Code, CAD, and control scripts are in the
+        <a href="https://github.com/AntheaPoklewski/cool_projects/tree/main/automated_liquid_control">automated liquid control</a>
+        folder.
+      </div>
+
+      <h2>System building blocks</h2>
+      <ul>
+        <li><strong>Sensing</strong> — IMU for vehicle motion</li>
+        <li><strong>Estimation</strong> — orientation / attitude from sensor data</li>
+        <li><strong>Control</strong> — PID on an STM32 embedded platform</li>
+        <li><strong>Actuation</strong> — 3-RRS parallel manipulator with servo motors</li>
+      </ul>
+
+      <div class="media-pair">
+        <figure>
+          <img src="../../images/project_top.jpg" alt="Top view">
+          <figcaption>Top view</figcaption>
+        </figure>
+        <figure>
+          <img src="../../images/project_side.jpg" alt="Side view">
+          <figcaption>Side view</figcaption>
+        </figure>
+      </div>
+
+      <h2>Field demo</h2>
+      <div class="media-block">
+        <figure>
+          <video controls preload="metadata">
+            <source src="../../university_projects/Intra-vehicle%20Coffee%20Stabiliser%20and%20Anti-Spill%20Device/Project%20Video%20Compressed.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <figcaption>System working under field conditions</figcaption>
+        </figure>
+      </div>
+
+      <h2>Recognition</h2>
+      <p>
+        This project won first place for the final-year project in Electronic Engineering
+        at the University of Pretoria. 
+      </p>
+
+      <div class="callout">
+        Simplified report in journal format is available here:
+        <a href="https://github.com/AntheaPoklewski/cool_projects/tree/main/Journal">journal</a>
+      </div>
+      
+      <nav class="article-nav">
+        <a href="../outdoor-slam/index.html">← Previous: V-SLAM and Reconstruction Outdoors</a>
+        <a href="../line-following-robot/index.html">Next: Line-following robot →</a>
+      </nav>
+    </article>
+  </main>
+
+
+  <footer class="site-footer">
+    <span>© Anthea Poklewski-Koziell</span>
+    <a href="../index.html">Projects</a>
+  </footer>
+</body>
+</html>

@@ -1,115 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta name="viewport" content="with=device-width, initial-scale=1.0">
-        <title>Anth's Website</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    </head>
-    <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anthea Poklewski-Koziell</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Winky+Rough:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <a class="nav-brand" href="index.html">Anthea</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="projects/index.html">Projects</a></li>
+        <li><a href="#up-robots">UP Robots</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <!-- <section class="header">
-            <nav>
-                <a href="index.html"> ></a>
-                <div class="nav-links">
-                    <ul>
-                        <li><a href="#home">HOME</a></li>
-                        <li><a href="#projects">PROJECTS</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </section> -->
-
-        <!-- Navbar -->
-        <div class="navbar">
-            <a href="#top">Home</a>
-            <a href="#projects">Projects</a>
+  <main>
+    <section class="wrap hero" id="home">
+      <div class="hero-text">
+        <p class="eyebrow">Portfolio</p>
+        <h1 class="hero-brand">Anthea</h1>
+        <p class="hero-role">Electronic Engineer · Robotics, Computer Vision &amp; Edge AI</p>
+        <p>
+          Welcome — this site is a space to experiment with fun electronics projects, and to document some of my work from university. Feel free to explore my projects and learn more about me, as well as reach out via email if you would like to access my code or if you have any questions. Enjoy! ;p
+        </p>
+        <p>
+          
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="projects/index.html">View projects</a>
+          <a class="btn btn-ghost" href="#about">About me</a>
         </div>
+      </div>
+      <div class="hero-visual">
+        <img src="images/Anth_homepage.JPG" alt="Anthea Poklewski-Koziell">
+      </div>
+    </section>
 
-        <!-- Home Section -->
-        <section id="home" class="section">
-            <div class="home-content">
-                <img src="images/circuit.jpg" class="home-image" />
-                <div class="home-text">
-                <h1>Welcome to My Page</h1>
-                <h3>A Bit About Me</h3>
-                <br>
-                <p>Hey there, I'm Anthea! And this is my website. It's a space to experiment with graphic design, HTML and CSS development, and also to display some of my projects and artworks. </p>
-                <br>
-                <p> I am an Electronic Engineer, with an interest in firmware design, robotics, and machine learning. My current field of work is in the Data Engineering and Edge AI space, but I would like to broaden my understanding of Computer Science concepts, and how they integrate with embedded systems. </p>
-                <br>
-                <p> Aside from engineering, I have a growing list of hobbies that keep me busy...</p>
-                <br>
-                <p> I love gardening, and bringing greenery to indoor spaces through numerous pot plants. I enjoy cooking and baking on the weekends. I am an avid reader, and a Parkrun enthusiast. And on occasion, I enjoy playing Stardew Valley or Minecraft at my cosy desk set-up. </p>
+    <section class="wrap section" id="projects">
+      <div class="section-head">
+        <h2>Featured projects</h2>
+        <a class="section-link" href="projects/index.html">View all →</a>
+      </div>
 
-                <figure>
-                    <img src="images/plant1.jpg" alt="Plant1" class="plant-image">
-                    <img src="images/plant2.jpg" alt="Plant2" class="plant-image">
-                    <img src="images/plant3.jpg" alt="Plant3" class="plant-image">
-                    <img src="images/plant4.jpg" alt="Plant3" class="plant-image">
-                </figure>
+      <div class="project-grid">
+        <a class="project-card" href="projects/outdoor-slam/index.html">
+          <div class="project-card-media uncropped">
+            <img src="images/robo_dog.png" alt="Quadruped robot on a forest path">
+          </div>
+          <div class="project-card-body">
+            <span class="project-card-date">Master’s</span>
+            <h3>V-SLAM and Reconstruction Outdoors</h3>
+            <p>
+              Master’s work on simultaneous localisation and mapping, and 3D reconstruction,
+              in outdoor environments.
+            </p>
+          </div>
+        </a>
 
-            </div>
-            </div>
-            </section>
+        <a class="project-card" href="projects/coffee-stabiliser/index.html">
+          <div class="project-card-media">
+            <img src="images/project.jpg" alt="Coffee stabiliser platform top view">
+          </div>
+          <div class="project-card-body">
+            <span class="project-card-date">2024</span>
+            <h3>Intra-vehicle Coffee Stabiliser</h3>
+            <p>
+              Final-year project: IMU sensing, orientation estimation, and PID control
+              on a 3-RRS parallel manipulator to stop coffee spilling in a moving car.
+            </p>
+          </div>
+        </a>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section">
-            <h2>Projects</h2>
-            <h3> Final-year University Project (2024)</h3>
-            <br>
-            <p>My Final-year project was an Intra-vehicle Coffee Stabiliser and Anti-spill Device. The goal of the system was to prevent coffee spilling in a moving vehicle under normal driving conditions, such as braking, accelerating, and turning. The system comprised of a sensor suit (Inertial Measurement Unit) and orientation estimation algorithm, a control subsystem (PID controller) implemented on an embedded device, as well as the 3-RRS parallel manipulator mechanical structure (3-D printed platform and servo motors). My project report is being re-written for a journal publication - soon to be shared <u>here!</u></p>
+        <a class="project-card" href="projects/line-following-robot/index.html">
+          <div class="project-card-media uncropped">
+            <img src="university_projects/Line-Following_Robot_Team.jpg" alt="Line-following robot team">
+          </div>
+          <div class="project-card-body">
+            <span class="project-card-date">2022</span>
+            <h3>Line-Following Robot</h3>
+            <p>
+              Ice-cream-truck themed robot from Robot Race Day (EMK 310) —
+              sensing, control, and a bit of racing chaos.
+            </p>
+          </div>
+        </a>
 
-            <div class="image-row">
-                <figure>
-                    <img src="images/project_top.jpg" alt="Top View" class="side-image">
-                    <img src="images/project_side.jpg" alt="Side View" class="side-image">
-                    <figcaption>Top and side view of project</figcaption>
-                </figure>
+      </div>
+    </section>
 
-                <!-- <p>You can view the system working in field conditions here! </p> -->
-                 <p>(PS, this project won me first place for final-year project in Electronic Engineering at the University of Pretoria :p)</p>
-                <!-- <video width="640" height="360" controls>
-                        <source src="images/Project video .MOV" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video> -->
-            </div>
+    <section class="wrap section" id="up-robots">
+      <div class="section-head">
+        <h2>UP Robots</h2>
+      </div>
+      <div class="up-robots">
+        <div class="up-robots-tile">
+          <img src="images/logo.png" alt="UP Robotics Group logo">
+        </div>
+        <p class="about-copy">
+          We are starting a robotics club at the University of Pretoria, and we are looking for students who are interested in robotics, computer vision, and embedded systems. If you are interested in joining, please reach out to us via email and follow our social media - Instagram page is coming soon!
+        </p>
+      </div>
+    </section>
+     
 
-            <div class="upcoming">
-                <h3> Other University Highlights </h3>
-                <br>
-                <p> Some cool university projects included our ice-cream-truck line-following robot from Robot Race Day (2022) EMK 310, the 128-point FFT on an STM32, the type-AB speaker transistor circuit ENE 410, and the Prac 3 Phase-locked Loop (PLL) EMS 310. </p>
+    <section class="wrap section" id="about">
+      <div class="section-head">
+        <h2>A bit about me</h2>
+      </div>
+      <p class="about-copy">
+        I am currently completing a Master's Degree in Electronic Engineering at the University of Pretoria South Africa. I have a passion for robotics, embedded systems, and edge AI, and I hope to use my skills to create innovative solutions to real-world problems.
+      </p>
+      <p class="about-copy">
+        Aside from engineering, I love drawing and gardening, bringing greenery indoors with lots of pot plants. I am an avid birder and enjoy going on bird-spotting walks, as well as running in the mornings at my local Parkrun. 
+      </p>
+      
+      <div class="interest-row" style="margin-bottom: 1.4rem;">
+        <span class="chip">Drawing</span>
+        <span class="chip">Gardening</span>
+        <span class="chip">Parkrun</span>
+      </div>
+      <div class="plant-row">
+        <img src="images/plant1.jpg" alt="Houseplant 1">
+        <img src="images/plant2.jpg" alt="Houseplant 2">
+        <img src="images/plant3.jpg" alt="Houseplant 3">
+        <img src="images/plant4.jpg" alt="Houseplant 4">
+      </div>
+    </section>
+  </main>
 
-                <div class="image-row">
-                    <figure>
-                        <img src="university_projects/Line-Following Robot.JPG" alt="Robot car" class="uni-image1">
-                    </figure>
-
-                    <video width="250" height="360" controls>
-                            <source src="university_projects/128-point FFT on STM32.MP4" type="video/mp4">
-                            Your browser does not support the video tag.
-                    </video>
-
-                    <video width="250" height="360" controls>
-                            <source src="university_projects/Analogue Transistor Amplifier Circuit for Speaker .MOV" type="video/mp4">
-                            Your browser does not support the video tag.
-                    </video>
-
-                    <figure>
-                        <img src="university_projects/Analogue Phase-locked Loop.JPG" alt="PLL" class="uni-image2">
-                    </figure>
-
-                    <figcaption>(a) Robot Race Day, (b) 128-point FFT, (c) Speaker amplifier, (d) EMS 310 PLL </figcaption>
-                </div>
-            </div>
-            
-            <div class="upcoming">
-                <h3> Upcoming projects...</h3>
-                <br>
-                <p> Home-made Roomba with remote Odroid and IoT system -> utilises Docker on a remote Ubuntu server, implementing SLAM techniques (10% complete), Unity art game (5% complete)</p>
-            </div>
-        </section>
-    </body>
+  <footer class="site-footer">
+    <span>© Anthea Poklewski-Koziell</span>
+    <span>Built with HTML &amp; CSS</span>
+  </footer>
+</body>
 </html>
