@@ -6,6 +6,9 @@ Hey I'm Anthea! Welcome to my public GitHub with some of my favourite university
 ## my_website
 An interlude into html and css, with some small graphic design pieces, for fun! Just clone the repo, and open the html file.
 
+## computer_vision_theory
+EAI733 and EAI732 theory assignments.  
+
 ## university_projects
 Pictures and videos from some university projects:
 * Year 1 of my Meng in V-SLAM and outdoor reconstruction for elephant impact monitoring (2026)
