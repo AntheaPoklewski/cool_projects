@@ -27,7 +27,3 @@ python3 -m http.server 8000
 ```
 
 Open [http://localhost:8000](http://localhost:8000).
-
-## Colour scheme
-
-Teal / soft greenhouse tones in `style.css` (`:root` variables). Change `--accent`, `--bg`, and `--brass` to restyle the whole site.
